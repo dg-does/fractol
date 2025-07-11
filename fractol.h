@@ -19,10 +19,15 @@
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # define ERRMSG "Please enter either \"./fractol mandelbrot\" or \"./fractol julia <value 1> <value 2>\""
 # define WIDTH 800
 # define HEIGHT 800
+
+# define XK_Escape 0xff1b
+
 // Standard Colors
 # define BLACK       0x000000
 # define WHITE       0xFFFFFF
@@ -63,6 +68,9 @@ typedef struct s_fractol
 	t_img	img;
 	double	esc_value;
 	int		iters;
+	double	shift_x;
+	double	shift_y;
+	double	zoom; 
 }				t_fractol;
 
 typedef struct s_complex 
@@ -73,6 +81,7 @@ typedef struct s_complex
 
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int     		key_handler(int keysym, t_fractol *fractol);
 void		ft_putstr_fd(char *s, int fd);
 void		fractol_init(t_fractol *fractol);
 double		map(double u_num, double new_min, double new_max, double old_max);

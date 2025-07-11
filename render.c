@@ -32,8 +32,8 @@ static void	handle_pixel(int x, int y, t_fractol *fractol)
 	z.i = 0.0;
 	j = 0;
 
-	c.real = map(x, -2, 2, WIDTH - 1);
-	c.i = map(y, 2, -2, HEIGHT - 1);
+	c.real = map(x, -2, 2, WIDTH - 1) * fractol->zoom + fractol->shift_x;
+	c.i = map(y, 2, -2, HEIGHT - 1) * fractol->zoom + fractol->shift_y;
 
 	while (j < fractol->iters)
 	{

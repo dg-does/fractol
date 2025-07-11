@@ -48,6 +48,8 @@ void	data_init(t_fractol *fractol)
 {
 	fractol->esc_value = 4;
 	fractol->iters = 4200;
+	fractol->shift_x = 0.0;
+	fractol->shift_y = 0.0;
 }
 /*
 void	events_init(t_fractol *fractol)
