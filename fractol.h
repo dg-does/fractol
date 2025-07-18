@@ -70,7 +70,9 @@ typedef struct s_fractol
 	int		iters;
 	double	shift_x;
 	double	shift_y;
-	double	zoom; 
+	double	zoom;
+	double	julia_x;
+	double	julia_y;
 }				t_fractol;
 
 typedef struct s_complex 
@@ -82,6 +84,7 @@ typedef struct s_complex
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int     		key_handler(int keysym, t_fractol *fractol);
+int			close_handler(t_fractol *fractol)
 void		ft_putstr_fd(char *s, int fd);
 void		fractol_init(t_fractol *fractol);
 double		map(double u_num, double new_min, double new_max, double old_max);

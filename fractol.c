@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
 		fractol.name = argv[1];
+		fractol.julia_x = atobdl(argv[2]);
+		fractol.julia_y = atodbl(argv[3]);
 		fractol_init(&fractol);
 		data_init(&fractol);
 		render_fractol(&fractol);

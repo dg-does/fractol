@@ -50,8 +50,9 @@ void	data_init(t_fractol *fractol)
 	fractol->iters = 4200;
 	fractol->shift_x = 0.0;
 	fractol->shift_y = 0.0;
+	fractol->zoom = 1.0;
 }
-/*
+
 void	events_init(t_fractol *fractol)
 {
 	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handler, fractol);
@@ -60,4 +61,4 @@ void	events_init(t_fractol *fractol)
 	mlx_hook(fractol->mlx_window, DestroyNotify,
 		StructureNotifyMask, close_handler, fractol);
 }
-*/
+
