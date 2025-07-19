@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:47:59 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/10 18:28:17 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/19 17:19:18 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@ static void	malloc_error(void)
 {
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
+}
+
+void	data_init(t_fractol *fractol)
+{
+	fractol->esc_value = 4;
+	fractol->iters = 42;
+	fractol->shift_x = 0.0;
+	fractol->shift_y = 0.0;
+	fractol->zoom = 1.0;
+}
+
+static void	events_init(t_fractol *fractol)
+{
+	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handler, fractol);
+	mlx_hook(fractol->mlx_window, ButtonPress,
+		ButtonPressMask, mouse_handler, fractol);
+	mlx_hook(fractol->mlx_window, DestroyNotify,
+		StructureNotifyMask, close_handler, fractol);
 }
 
 void	fractol_init(t_fractol *fractol)
@@ -42,23 +60,8 @@ void	fractol_init(t_fractol *fractol)
 	}
 	fractol->img.addr = mlx_get_data_addr(fractol->img.img_ptr,
 			&fractol->img.bpp, &fractol->img.line_len, &fractol->img.endian);
+	events_init(fractol);
+	data_init(fractol);
 }
 
-void	data_init(t_fractol *fractol)
-{
-	fractol->esc_value = 4;
-	fractol->iters = 4200;
-	fractol->shift_x = 0.0;
-	fractol->shift_y = 0.0;
-	fractol->zoom = 1.0;
-}
-
-void	events_init(t_fractol *fractol)
-{
-	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handler, fractol);
-	mlx_hook(fractol->mlx_window, ButtonPress,
-		ButtonPressMask, mouse_handler, fractol);
-	mlx_hook(fractol->mlx_window, DestroyNotify,
-		StructureNotifyMask, close_handler, fractol);
-}
 

@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:26:40 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/07 20:29:44 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/19 17:37:53 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	handle_pixel(int x, int y, t_fractol *fractol)
 		}
 		j++;
 	}
-	my_pixel_put(x, y, &fractol->img, PSYCHEDELIC_RAINBOW);
+	my_pixel_put(x, y, &fractol->img, WHITE);
 }
 
 void	render_fractol(t_fractol *fractol)

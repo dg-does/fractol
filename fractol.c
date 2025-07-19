@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:26:41 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/10 18:27:45 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:54:21 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int argc, char *argv[])
 		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
 		fractol.name = argv[1];
-		fractol.julia_x = atobdl(argv[2]);
-		fractol.julia_y = atodbl(argv[3]);
+		//fractol.julia_x = atobdl(argv[2]);
+		//fractol.julia_y = atodbl(argv[3]);
 		fractol_init(&fractol);
 		data_init(&fractol);
 		render_fractol(&fractol);
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	}
 	else
 	{
-		perror(ERRMSG);
+		perror("Enter \"./fractol mandelbrot\" or \"./fractol julia <v1> <v2>\"");
 		exit(EXIT_FAILURE);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:27:21 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/07 20:34:24 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/19 17:32:42 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,25 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define ERRMSG "Please enter either \"./fractol mandelbrot\" or \"./fractol julia <value 1> <value 2>\""
 # define WIDTH 800
 # define HEIGHT 800
 
-# define XK_Escape 0xff1b
+// COLORS
+# define BLACK       0x000000  // RGB(0, 0, 0)
+# define WHITE       0xFFFFFF  // RGB(255, 255, 255)
+# define RED         0xFF0000  // RGB(255, 0, 0)
+# define GREEN       0x00FF00  // RGB(0, 255, 0)
+# define BLUE        0x0000FF  // RGB(0, 0, 255)
 
-// Standard Colors
-# define BLACK       0x000000
-# define WHITE       0xFFFFFF
-# define RED         0xFF0000
-# define GREEN       0x00FF00
-# define BLUE        0x0000FF
-# define YELLOW      0xFFFF00
-# define CYAN        0x00FFFF
-# define MAGENTA     0xFF00FF
-# define GRAY        0x808080
-// Psychedelic / Vibrant Colors
-# define NEON_PINK       0xFF6EC7
-# define NEON_GREEN      0x39FF14
-# define NEON_BLUE       0x1B03A3
-# define ELECTRIC_PURPLE 0xBF00FF
-# define HOT_PINK        0xFF69B4
-# define LIME            0xBFFF00
-# define ORANGE          0xFFA500
-# define VIOLET          0x8F00FF
-# define TURQUOISE       0x40E0D0
-# define PSYCHEDELIC_RAINBOW 0xFF66FF  // Bright pinkish rainbow
+// Psychedelic colors
+# define MAGENTA_BURST   0xFF00FF  // A vibrant magenta
+# define LIME_SHOCK      0xCCFF00  // A blinding lime
+# define NEON_ORANGE     0xFF6600  // A blazing neon orange
+# define PSYCHEDELIC_PURPLE 0x660066  // A deep purple
+# define AQUA_DREAM      0x33CCCC  // A bright turquoise
+# define HOT_PINK        0xFF66B2  // As the name suggests!
+# define ELECTRIC_BLUE   0x0066FF  // A radiant blue
+# define LAVA_RED        0xFF3300  // A bright, molten red
 
 
 typedef struct s_img 
@@ -83,8 +75,9 @@ typedef struct s_complex
 
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int     		key_handler(int keysym, t_fractol *fractol);
-int			close_handler(t_fractol *fractol)
+int			key_handler(int keysym, t_fractol *fractol);
+int			mouse_handler(int button, t_fractol *fractol);
+int			close_handler(t_fractol *fractol);
 void		ft_putstr_fd(char *s, int fd);
 void		fractol_init(t_fractol *fractol);
 double		map(double u_num, double new_min, double new_max, double old_max);

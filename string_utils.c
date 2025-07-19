@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:54:22 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/07 17:04:31 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/19 15:28:23 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-double
