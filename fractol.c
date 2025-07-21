@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:26:41 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/19 16:54:21 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:53:41 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int argc, char *argv[])
 		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
 		fractol.name = argv[1];
-		//fractol.julia_x = atobdl(argv[2]);
-		//fractol.julia_y = atodbl(argv[3]);
+		fractol.julia_x = atodbl(argv[2]);
+		fractol.julia_y = atodbl(argv[3]);
 		fractol_init(&fractol);
 		data_init(&fractol);
 		render_fractol(&fractol);
@@ -29,18 +29,7 @@ int	main(int argc, char *argv[])
 	}
 	else
 	{
-		perror("Enter \"./fractol mandelbrot\" or \"./fractol julia <v1> <v2>\"");
+		perror("Enter \"./fractol mandelbrot\" or \"./fractol julia <real> <i>\"");
 		exit(EXIT_FAILURE);
 	}
 }
-/*
-LINKING MiniLibX
-       To  use MiniLibX functions, you'll need to link your software with sev‐
-       eral libraries, including the MiniLibX library  itself.   To  do  this,
-       simply add the following arguments at linking time:
-
-       -lmlx -lXext -lX11
-
-       You  may also need to specify the path to these libraries, using the -L
-       flag.
-*/

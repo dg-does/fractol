@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:27:21 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/19 17:32:42 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:38:50 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 # define ELECTRIC_BLUE   0x0066FF  // A radiant blue
 # define LAVA_RED        0xFF3300  // A bright, molten red
 
-
 typedef struct s_img 
 {
 	void	*img_ptr;
@@ -73,10 +72,9 @@ typedef struct s_complex
 	double	i;
 }				t_complex;
 
-
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			key_handler(int keysym, t_fractol *fractol);
-int			mouse_handler(int button, t_fractol *fractol);
+int			mouse_handler(int button, int x, int y, t_fractol *fractol);
 int			close_handler(t_fractol *fractol);
 void		ft_putstr_fd(char *s, int fd);
 void		fractol_init(t_fractol *fractol);
@@ -85,4 +83,5 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 void		render_fractol(t_fractol *fractol);
 void		data_init(t_fractol *fractol);
+double		atodbl(char *s);
 #endif

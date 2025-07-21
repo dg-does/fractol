@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:47:59 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/19 17:19:18 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/21 14:11:22 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,3 @@ void	fractol_init(t_fractol *fractol)
 	events_init(fractol);
 	data_init(fractol);
 }
-
-

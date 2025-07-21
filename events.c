@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/21 13:45:48 by digulraj          #+#    #+#             */
+/*   Updated: 2025/07/21 15:51:23 by digulraj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 int	key_handler(int keysym, t_fractol *fractol)
 {
-	// action on keypress
 	if (keysym == XK_Escape)
 		close_handler(fractol);
 	else if (keysym == XK_KP_Add)
@@ -18,18 +28,22 @@ int	key_handler(int keysym, t_fractol *fractol)
 		fractol->shift_y += (0.5 * fractol->zoom);
 	else if (keysym == XK_Up)
 		fractol->shift_y -= (0.5 * fractol->zoom);
-	// refresh the image;
+	else if (keysym == XK_Page_Down)
+		fractol->zoom *= 0.95;
+	else if (keysym == XK_Page_Up)
+		fractol->zoom *= 1.05;
 	render_fractol(fractol);
 	return (0);
 }
 
-int	mouse_handler(int button, t_fractol *fractol)
+int	mouse_handler(int button, int x, int y, t_fractol *fractol)
 {
-	printf("%d/n", button);
-	/*if (button == Button5)
+	(void) x;
+	(void) y;
+	if (button == Button5)
 		fractol->zoom *= 0.95;
 	else if (button == Button4)
-		fractol->zoom *= 1.05;*/
+		fractol->zoom *= 1.05;
 	render_fractol(fractol);
 	return (0);
 }

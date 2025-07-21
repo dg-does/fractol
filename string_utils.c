@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:54:22 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/19 15:28:23 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:36:49 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,33 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+}
+
+double	atodbl(char *s)
+{
+	double	whole;
+	double	fraction;
+	double	divisor;
+	int		sign;
+
+	whole = 0.0;
+	fraction = 0.0;
+	divisor = 10.0;
+	sign = 1;
+	while ((*s >= 9 && *s <= 13) || (*s == 32))
+		s++;
+	while ((*s == '+') || (*s == '-'))
+		if (*s++ == '-')
+			sign = -sign;
+	while (*s >= '0' && *s <= '9')
+		whole = (whole * 10.0) + (*s++ - '0');
+	if (*s == '.')
+		s++;
+	while (*s >= '0' && *s <= '9')
+	{
+		fraction += (*s++ - '0') / divisor;
+		divisor *= 10.0;
+	}
+	return (sign * (whole + fraction));
 }
 
