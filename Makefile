@@ -6,7 +6,7 @@
 #    By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 15:36:02 by digulraj          #+#    #+#              #
-#    Updated: 2025/07/21 13:48:26 by digulraj         ###   ########.fr        #
+#    Updated: 2025/10/14 16:42:36 by digulraj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(OBJ)
 
 re: fclean all
 

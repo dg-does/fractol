@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:26:40 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/21 16:52:13 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:32:53 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ static void	my_pixel_put(int x, int y, t_img *img, int colour)
 	offset = (y * img->line_len) + (x * (img->bpp / 8));
 	*(unsigned int *)(img->addr + offset) = colour;
 }
-/*
-static void	mandel_or_julia(t_complex z, t_complex c, t_fractol fractol)
+
+static void	select_fractol(t_complex *z, t_complex *c, t_fractol *fractol)
 {
 	if (!ft_strncmp(fractol->name, "julia", 5))
 	{
 		c->real = fractol->julia_x;
 		c->i = fractol->julia_y;
 	}
-	else
+	else if (!ft_strncmp(fractol->name, "mandelbrot", 10))
 	{
 		c->real = z->real;
 		c->i = z->i;
 	}
-}*/
+}
 
 static void	handle_pixel(int x, int y, t_fractol *fractol)
 {
@@ -41,12 +41,10 @@ static void	handle_pixel(int x, int y, t_fractol *fractol)
 	int			j;
 	int			colour;
 
-	z.real = 0.0;
-	z.i = 0.0;
 	j = 0;
-	c.real = map(x, -2, 2, WIDTH - 1) * fractol->zoom + fractol->shift_x;
-	c.i = map(y, 2, -2, HEIGHT - 1) * fractol->zoom + fractol->shift_y;
-
+	z.real = map(x, -2, 2, WIDTH) / fractol->zoom + fractol->shift_x;
+	z.i = map(y, 2, -2, HEIGHT) / fractol->zoom + fractol->shift_y;
+	select_fractol(&z, &c, fractol);
 	while (j < fractol->iters)
 	{
 		z = sum_complex(square_complex(z), c);

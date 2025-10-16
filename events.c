@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 13:45:48 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/21 15:51:23 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:40:24 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	key_handler(int keysym, t_fractol *fractol)
 
 int	mouse_handler(int button, int x, int y, t_fractol *fractol)
 {
-	(void) x;
-	(void) y;
-	if (button == Button5)
+	(void)x;
+	(void)y;
+	if (button == Button4)
 		fractol->zoom *= 0.95;
-	else if (button == Button4)
+	else if (button == Button5)
 		fractol->zoom *= 1.05;
 	render_fractol(fractol);
 	return (0);

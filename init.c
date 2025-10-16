@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:47:59 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/21 14:11:22 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:31:14 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	malloc_error(void)
 void	data_init(t_fractol *fractol)
 {
 	fractol->esc_value = 4;
-	fractol->iters = 42;
+	fractol->iters = 100;
 	fractol->shift_x = 0.0;
 	fractol->shift_y = 0.0;
 	fractol->zoom = 1.0;
@@ -32,6 +32,7 @@ static void	events_init(t_fractol *fractol)
 	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handler, fractol);
 	mlx_hook(fractol->mlx_window, ButtonPress,
 		ButtonPressMask, mouse_handler, fractol);
+	mlx_mouse_hook(fractol->mlx_window, mouse_handler, fractol);
 	mlx_hook(fractol->mlx_window, DestroyNotify,
 		StructureNotifyMask, close_handler, fractol);
 }

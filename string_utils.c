@@ -6,7 +6,7 @@
 /*   By: digulraj <digulraj@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:54:22 by digulraj          #+#    #+#             */
-/*   Updated: 2025/07/21 16:36:49 by digulraj         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:41:32 by digulraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ double	atodbl(char *s)
 	}
 	return (sign * (whole + fraction));
 }
-
